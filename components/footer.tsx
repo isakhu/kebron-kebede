@@ -27,11 +27,11 @@ export function Footer() {
                 K
               </span>
               <span className="font-display text-base font-bold text-text-primary group-hover:text-brand transition-colors duration-300">
-                Kebron Kebede Olana
+                Kebron Kebede
               </span>
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-text-muted">
-              Banking Operations Specialist & Project Manager Candidate based in Addis Ababa, Ethiopia.
+              Project Manager &amp; Banking Operations Specialist based in Addis Ababa, Ethiopia.
             </p>
             <div className="mt-5 flex flex-wrap gap-4">
               {socials.map((item) => (
@@ -65,7 +65,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col gap-3 border-t border-white/8 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-text-muted">
-            © {new Date().getFullYear()} Kebron Kebede Olana. All rights reserved.
+            © {new Date().getFullYear()} Kebron Kebede. All rights reserved.
           </p>
           <p className="text-xs text-text-muted">
             Built with Next.js & Tailwind CSS

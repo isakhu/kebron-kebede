@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'Kebron Kebede Olana',
+  name: 'Kebron Kebede',
   title: 'Card Banking Officer | Business Analyst | Project Management Professional',
   targetPosition: 'Project Manager',
   organization: 'Cooperative Bank of Oromia',

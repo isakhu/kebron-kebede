@@ -1,10 +1,10 @@
-# Kebron Kebede Olana — Executive Banking Portfolio
+# Kebron Kebede — Project Manager Portfolio
 
 A production-ready Next.js 15 portfolio designed for a banking executive profile. This application is built with TypeScript, Tailwind CSS, Framer Motion, React Hook Form, Zod, and modern enterprise UI architecture.
 
 ## Project Overview
 
-This portfolio highlights Kebron Kebede Olana's banking and business analysis expertise in a professional executive format. The application is built for performance, accessibility, SEO, and responsive presentation across devices.
+This portfolio highlights Kebron Kebede's banking and business analysis expertise in a professional executive format.
 
 ## Features
 

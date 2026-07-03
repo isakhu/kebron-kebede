@@ -59,10 +59,9 @@ export function HeroSection() {
 
             {/* Name */}
             <h1 className="font-display text-hero font-bold leading-[1.04] tracking-[-0.03em]">
-              <span className="gradient-text-subtle">Kebron</span>{' '}
-              <span className="gradient-text-subtle">Kebede</span>
+              <span className="gradient-text-subtle">Kebron</span>
               <br />
-              <span className="gradient-text">Olana</span>
+              <span className="gradient-text">Kebede</span>
             </h1>
 
             {/* Title */}
@@ -157,7 +156,7 @@ export function HeroSection() {
               <div className="relative">
                 <Image
                   src="/kebron-profile.jpg"
-                  alt="Kebron Kebede Olana — Project Manager"
+                  alt="Kebron Kebede — Project Manager"
                   width={520}
                   height={520}
                   className="h-auto w-full px-8 pt-8 pb-4"
