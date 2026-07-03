@@ -5,23 +5,62 @@ export type SkillCategory = {
 
 export const skills: SkillCategory[] = [
   {
-    title: 'Banking',
-    items: ['Card Banking Operations', 'Payment Systems', 'Banking Operations', 'Business Analysis'],
-  },
-  {
-    title: 'Documentation',
-    items: ['BRD', 'FRD', 'Process Documentation', 'System Change Records'],
-  },
-  {
     title: 'Project Management',
-    items: ['Project Planning', 'Stakeholder Management', 'Monitoring & Evaluation', 'Project Coordination'],
+    items: [
+      'Project Planning & Scheduling',
+      'Stakeholder Management',
+      'Risk Management',
+      'Change Management',
+      'Agile / Scrum',
+      'Monitoring & Evaluation',
+      'Project Coordination',
+      'Scope & Requirements Management',
+    ],
   },
   {
-    title: 'Analytics',
-    items: ['Microsoft Excel', 'SPSS', 'IBM Analytical Tools', 'Data Analysis', 'Trend Analysis', 'KPI/KRI Monitoring'],
+    title: 'Business Analysis',
+    items: [
+      'BRD / FRD Documentation',
+      'Process Mapping',
+      'Gap Analysis',
+      'Use Case Development',
+      'Requirements Elicitation',
+      'System Enhancement Support',
+      'Operational Readiness',
+    ],
   },
   {
-    title: 'Leadership',
-    items: ['Training & Knowledge Transfer', 'Communication', 'Problem Solving', 'Report Writing', 'Analytical Thinking'],
+    title: 'Banking & Operations',
+    items: [
+      'Card Banking Operations',
+      'Payment Systems',
+      'KPI / KRI Monitoring',
+      'Compliance & Regulatory Alignment',
+      'Process Optimization',
+      'Operational Documentation',
+    ],
+  },
+  {
+    title: 'Analytics & Tools',
+    items: [
+      'Microsoft Excel (Advanced)',
+      'SPSS',
+      'IBM Analytical Tools',
+      'Data Analysis',
+      'Trend Analysis',
+      'Performance Dashboards',
+      'Report Writing',
+    ],
+  },
+  {
+    title: 'Leadership & Communication',
+    items: [
+      'Cross-functional Team Leadership',
+      'Training & Knowledge Transfer',
+      'Executive Reporting',
+      'Problem Solving',
+      'Analytical Thinking',
+      'Stakeholder Communication',
+    ],
   },
 ];

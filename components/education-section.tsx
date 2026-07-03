@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin, Star } from 'lucide-react';
 import { SectionTitle } from './ui/section-title';
 import { CertificationsSection } from './certifications-section';
 import { education } from '../data/education';
@@ -11,7 +11,7 @@ const fadeUp = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 },
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: i * 0.12 },
   }),
 };
 
@@ -24,52 +24,82 @@ export function EducationSection() {
         <SectionTitle
           title="Education"
           accent="Academic Background"
-          subtitle="Academic qualifications that support banking leadership and project management."
+          subtitle="Advanced academic training in project management backed by engineering fundamentals."
         />
 
-        <div className="space-y-4">
-          {education.map((item, idx) => (
-            <motion.div
-              key={`${item.degree}-${item.institution}`}
-              custom={idx}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="glass-card glass-card-hover group rounded-2xl p-7"
-            >
-              <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                {/* Left — degree info */}
-                <div className="flex gap-4">
-                  <div className="mt-0.5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-brand/10 group-hover:bg-brand/15 transition-colors duration-300">
-                    <GraduationCap className="h-5 w-5 text-brand" />
+        <div className="space-y-5">
+          {education.map((item, idx) => {
+            const isFeatured = idx === 0; // MSc PM is the first entry
+            return (
+              <motion.div
+                key={`${item.degree}-${item.institution}`}
+                custom={idx}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                className={`glass-card glass-card-hover group rounded-2xl p-7 ${
+                  isFeatured ? 'border border-brand/20' : ''
+                }`}
+              >
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                  {/* Left */}
+                  <div className="flex gap-4">
+                    <div
+                      className={`mt-0.5 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
+                        isFeatured
+                          ? 'bg-brand/15 group-hover:bg-brand/25'
+                          : 'bg-accent-violet/10 group-hover:bg-accent-violet/18'
+                      }`}
+                    >
+                      <GraduationCap
+                        className={`h-5 w-5 ${isFeatured ? 'text-brand' : 'text-accent-violet'}`}
+                      />
+                    </div>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <h3 className="font-display text-xl font-bold text-text-primary">{item.degree}</h3>
+                        {isFeatured && (
+                          <span className="inline-flex items-center gap-1 rounded-lg border border-brand/20 bg-brand/8 px-2.5 py-0.5 text-xs font-bold text-brand">
+                            <Star className="h-3 w-3" />
+                            Primary Qualification
+                          </span>
+                        )}
+                      </div>
+                      <p className={`mt-1 text-sm font-bold ${isFeatured ? 'text-brand' : 'text-accent-violet'}`}>
+                        {item.field}
+                      </p>
+                      <p className="mt-1 text-sm text-text-secondary">{item.institution}</p>
+                      {isFeatured && (
+                        <p className="mt-3 text-sm leading-relaxed text-text-secondary max-w-lg">
+                          Advanced graduate program covering project planning, risk management, agile methodologies, stakeholder engagement, and project governance — directly aligned with a career in professional project management.
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-display text-xl font-bold text-text-primary">{item.degree}</h3>
-                    <p className="mt-1 text-sm font-semibold text-brand">{item.field}</p>
-                    <p className="mt-1 text-sm text-text-secondary">{item.institution}</p>
-                  </div>
-                </div>
 
-                {/* Right — meta badges */}
-                <div className="flex flex-shrink-0 flex-wrap gap-2 sm:flex-col sm:items-end">
-                  {item.year && (
-                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-brand/20 bg-brand/8 px-3 py-1.5 text-xs font-bold text-brand">
-                      <Calendar className="h-3 w-3" />
-                      {item.year}
+                  {/* Right badges */}
+                  <div className="flex flex-shrink-0 flex-wrap gap-2 sm:flex-col sm:items-end">
+                    {item.year && (
+                      <span className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-bold whitespace-nowrap ${
+                        isFeatured ? 'border-brand/20 bg-brand/8 text-brand' : 'border-accent-violet/20 bg-accent-violet/8 text-accent-violet'
+                      }`}>
+                        <Calendar className="h-3 w-3" />
+                        {item.year}
+                      </span>
+                    )}
+                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-text-secondary whitespace-nowrap">
+                      <MapPin className="h-3 w-3" />
+                      {item.location}
                     </span>
-                  )}
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-text-secondary">
-                    <MapPin className="h-3 w-3" />
-                    {item.location}
-                  </span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Certifications embedded below education */}
+        {/* Certifications */}
         <CertificationsSection />
       </div>
     </section>
