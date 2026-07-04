@@ -84,7 +84,7 @@ export function AboutSection() {
                 <p className="text-xs font-bold uppercase tracking-widest text-text-muted">Education</p>
               </div>
               <p className="font-display text-sm font-bold text-text-primary">MSc Project Management</p>
-              <p className="mt-0.5 text-xs text-accent-violet font-semibold">MIC · 2023–2025 (In Progress)</p>
+              <p className="mt-0.5 text-xs text-accent-violet font-semibold">MIC · 2023–2025 · Completed</p>
               <div className="mt-3 border-t border-white/8 pt-3">
                 <p className="font-display text-sm font-bold text-text-primary">BSc Electrical &amp; Computer Eng.</p>
                 <p className="mt-0.5 text-xs text-text-muted">Hawassa University · 2018–2022</p>

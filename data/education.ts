@@ -4,6 +4,7 @@ export type EducationItem = {
   institution: string;
   location: string;
   year?: string;
+  completed?: boolean;
 };
 
 export const education: EducationItem[] = [
@@ -13,6 +14,7 @@ export const education: EducationItem[] = [
     institution: 'Maryland International College (MIC)',
     location: 'Ethiopia',
     year: 'Nov 2023 – Nov 2025',
+    completed: true,
   },
   {
     degree: 'Bachelor of Science',
@@ -20,5 +22,6 @@ export const education: EducationItem[] = [
     institution: 'Hawassa University',
     location: 'Ethiopia',
     year: '2018 – 2022',
+    completed: true,
   },
 ];

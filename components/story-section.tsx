@@ -59,7 +59,7 @@ export function StorySection() {
                 <div className="flex gap-3">
                   <Sparkles className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
                   <p className="text-sm text-text-secondary">
-                    <span className="font-semibold text-text-primary">Continuous learner</span> — MSc PM + Google certifications
+                    <span className="font-semibold text-text-primary">Continuous learner</span> — completed MSc PM + Google certifications
                   </p>
                 </div>
                 <div className="flex gap-3">

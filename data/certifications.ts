@@ -4,7 +4,7 @@ export type CourseItem = {
   title: string;
   issued: string;
   skills: string[];
-  credentialUrl?: string; // undefined = no link, no button shown
+  credentialUrl?: string; // undefined = no button shown
 };
 
 export type CertificationTrack = {
@@ -12,11 +12,10 @@ export type CertificationTrack = {
   id: string;
   program: string;
   issuer: string;
-  issuerLogo: 'coursera' | 'udemy' | 'alison' | 'mic';
+  issuerLogo: 'coursera' | 'udemy' | 'alison';
   platform?: string;
-  status: 'completed' | 'in-progress';
+  status: 'completed';
   courses: CourseItem[];
-  credentialUrl?: string;
 };
 
 export type CertificationSingle = {
@@ -24,12 +23,12 @@ export type CertificationSingle = {
   id: string;
   title: string;
   issuer: string;
-  issuerLogo: 'coursera' | 'udemy' | 'alison' | 'mic';
+  issuerLogo: 'coursera' | 'udemy' | 'alison';
   issued?: string;
   credentialId?: string;
   skills?: string[];
-  status: 'completed' | 'in-progress';
-  credentialUrl?: string; // undefined = no link, no button shown
+  status: 'completed';
+  credentialUrl?: string; // undefined = no button shown
 };
 
 export type CertificationEntry = CertificationTrack | CertificationSingle;
@@ -37,7 +36,7 @@ export type CertificationEntry = CertificationTrack | CertificationSingle;
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 export const certifications: CertificationEntry[] = [
-  // ── Google Project Management Professional Certificate ────────────────────
+  // ── Google Project Management Professional Certificate (5-course track) ──
   {
     kind: 'track',
     id: 'google-pm',
@@ -57,13 +56,13 @@ export const certifications: CertificationEntry[] = [
         title: 'Project Initiation: Starting a Successful Project',
         issued: 'Apr 2025',
         skills: ['Project Planning', 'Business Requirement Documentation (BRD)'],
-        // no URL — no button shown
+        // no URL
       },
       {
         title: 'Project Planning: Putting It All Together',
         issued: 'May 2025',
         skills: ['Project Planning'],
-        // no URL — no button shown
+        // no URL
       },
       {
         title: 'Project Execution: Running the Project',
@@ -103,19 +102,6 @@ export const certifications: CertificationEntry[] = [
     credentialId: '6173-28189056',
     skills: ['Data Entry', 'Microsoft Excel'],
     status: 'completed',
-    // no link available — credential ID shown as text only
-  },
-
-  // ── MSc Project Management — In Progress ─────────────────────────────────
-  {
-    kind: 'single',
-    id: 'msc-pm',
-    title: 'MSc in Project Management',
-    issuer: 'Maryland International College (MIC)',
-    issuerLogo: 'mic',
-    issued: 'Nov 2023 – Nov 2025',
-    skills: ['Project Management', 'Monitoring & Evaluation', 'Agile Methodologies'],
-    status: 'in-progress',
-    // no link — display as text only
+    // no link — credential ID shown as text only
   },
 ];

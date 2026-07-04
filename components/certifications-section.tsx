@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, CheckCircle2, Clock, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { Award, CheckCircle2, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import type { CertificationEntry, CertificationTrack, CertificationSingle } from '../data/certifications';
 import { certifications } from '../data/certifications';
@@ -36,22 +36,11 @@ function AlisonLogo({ size = 40 }: { size?: number }) {
   );
 }
 
-function MicLogo({ size = 40 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-label="MIC" role="img">
-      <rect width="40" height="40" rx="10" fill="#0F172A" />
-      <rect x="1" y="1" width="38" height="38" rx="9" stroke="#00D9FF" strokeWidth="1.5" fill="none" />
-      <text x="5" y="26" fontSize="11" fontWeight="bold" fill="#00D9FF" fontFamily="Arial, sans-serif">MIC</text>
-    </svg>
-  );
-}
-
-function PlatformLogo({ logo, size }: { logo: CertificationEntry['issuerLogo']; size?: number }) {
+function PlatformLogo({ logo, size }: { logo: 'coursera' | 'udemy' | 'alison'; size?: number }) {
   switch (logo) {
     case 'coursera': return <CourseraLogo size={size} />;
     case 'udemy':    return <UdemyLogo size={size} />;
     case 'alison':   return <AlisonLogo size={size} />;
-    case 'mic':      return <MicLogo size={size} />;
   }
 }
 
@@ -138,13 +127,11 @@ function TrackCard({ entry, index }: { entry: CertificationTrack; index: number 
                 key={course.title}
                 {...(linkProps as object)}
                 className={`flex items-start gap-4 px-6 py-4 transition-colors duration-150 group/row ${
-                  hasLink
-                    ? 'hover:bg-brand/5 cursor-pointer'
-                    : 'hover:bg-white/[0.02]'
+                  hasLink ? 'hover:bg-brand/5 cursor-pointer' : 'hover:bg-white/[0.02]'
                 }`}
               >
                 {/* Step number */}
-                <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-brand/25 bg-brand/8 text-[10px] font-bold text-brand mt-0.5 flex-shrink-0">
+                <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-brand/25 bg-brand/8 text-[10px] font-bold text-brand mt-0.5">
                   {i + 1}
                 </div>
 
@@ -182,10 +169,7 @@ function TrackCard({ entry, index }: { entry: CertificationTrack; index: number 
 // ─── Single cert card ─────────────────────────────────────────────────────────
 
 function SingleCard({ entry, index }: { entry: CertificationSingle; index: number }) {
-  const isInProgress = entry.status === 'in-progress';
   const hasLink = !!entry.credentialUrl;
-
-  // Wrap in <a> if there's a link, otherwise plain <div>
   const Card = hasLink ? 'a' : 'div';
   const linkProps = hasLink
     ? { href: entry.credentialUrl, target: '_blank', rel: 'noopener noreferrer' }
@@ -202,27 +186,17 @@ function SingleCard({ entry, index }: { entry: CertificationSingle; index: numbe
       <Card
         {...(linkProps as object)}
         className={`glass-card rounded-2xl border flex flex-col gap-4 p-5 h-full transition-all duration-300 group/card ${
-          isInProgress
-            ? 'border-brand/20 hover:border-brand/40 hover:-translate-y-0.5'
-            : hasLink
+          hasLink
             ? 'border-white/8 hover:border-brand/30 hover:bg-brand/[0.03] hover:-translate-y-1 cursor-pointer'
             : 'border-white/8 hover:border-white/15 hover:-translate-y-0.5'
         }`}
       >
-        {/* Top: logo + status badge */}
+        {/* Top: logo + completed badge */}
         <div className="flex items-start justify-between gap-3">
           <PlatformLogo logo={entry.issuerLogo} size={40} />
-          <span
-            className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider flex-shrink-0 ${
-              isInProgress
-                ? 'border-brand/20 bg-brand/8 text-brand'
-                : 'border-accent-violet/20 bg-accent-violet/10 text-accent-violet'
-            }`}
-          >
-            {isInProgress
-              ? <><Clock className="h-2.5 w-2.5" /> In Progress</>
-              : <><CheckCircle2 className="h-2.5 w-2.5" /> Completed</>
-            }
+          <span className="inline-flex items-center gap-1 rounded-lg border border-accent-violet/20 bg-accent-violet/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent-violet flex-shrink-0">
+            <CheckCircle2 className="h-2.5 w-2.5" />
+            Completed
           </span>
         </div>
 
@@ -236,9 +210,7 @@ function SingleCard({ entry, index }: { entry: CertificationSingle; index: numbe
           <p className="text-xs font-medium text-text-secondary">{entry.issuer}</p>
 
           {entry.issued && (
-            <p className="text-xs text-text-muted pt-0.5">
-              {isInProgress ? 'Enrolled:' : 'Issued:'} {entry.issued}
-            </p>
+            <p className="text-xs text-text-muted pt-0.5">Issued {entry.issued}</p>
           )}
 
           {entry.credentialId && (
@@ -255,7 +227,7 @@ function SingleCard({ entry, index }: { entry: CertificationSingle; index: numbe
           )}
         </div>
 
-        {/* Footer: credential link label (only when link exists) */}
+        {/* Show credential link — only when URL exists */}
         {hasLink && (
           <div className="flex items-center gap-1.5 text-xs font-bold text-brand group-hover/card:text-brand-light transition-colors duration-200 pt-1 border-t border-white/8">
             <ExternalLink className="h-3.5 w-3.5" />
@@ -275,7 +247,6 @@ export function CertificationsSection() {
 
   return (
     <div className="mt-16">
-      {/* Sub-heading */}
       <div className="mb-8 flex items-center gap-4">
         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-violet/15">
           <Award className="h-5 w-5 text-accent-violet" />
@@ -289,10 +260,7 @@ export function CertificationsSection() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {/* Google PM track — spans full width */}
         {track && <TrackCard entry={track} index={0} />}
-
-        {/* Individual cert cards */}
         {singles.map((entry, idx) => (
           <SingleCard key={entry.id} entry={entry} index={idx + 1} />
         ))}
