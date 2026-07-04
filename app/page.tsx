@@ -1,4 +1,5 @@
 import { AboutSection } from '../components/about-section';
+import { StorySection } from '../components/story-section';
 import { ContactSection } from '../components/contact-section';
 import { EducationSection } from '../components/education-section';
 import { ExperienceSection } from '../components/experience-section';
@@ -12,6 +13,7 @@ export default function HomePage() {
     <main className="bg-surface-darker">
       <HeroSection />
       <AboutSection />
+      <StorySection />
       <SkillsSection />
       <ExperienceSection />
       <ProjectsSection />

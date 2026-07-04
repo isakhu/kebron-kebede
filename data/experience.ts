@@ -8,19 +8,26 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    role: 'Card Banking Officer',
+    role: 'Payment Platform Performance Analyst – Business Team',
     organization: 'Cooperative Bank of Oromia',
-    location: 'Ethiopia',
-    period: 'February 2023 – Present',
+    location: 'Addis Ababa, Ethiopia',
+    period: 'Feb 2024 – Present',
     responsibilities: [
-      'Conduct payment platform performance analysis to identify bottlenecks and support operational resilience.',
-      'Prepare Business Requirement Documents (BRDs) and Functional Requirement Documents (FRDs) for banking system enhancements.',
-      'Maintain comprehensive operational documentation and system change records to ensure consistency and compliance.',
-      'Support banking system enhancement initiatives by aligning requirements with business objectives and technical constraints.',
-      'Deliver targeted training sessions for branch and district staff on payment system procedures and best practices.',
-      'Monitor KPIs and Key Risk Indicators (KRIs) to track operational performance and drive data-driven improvements.',
-      'Collaborate with cross-functional stakeholders to gather requirements and coordinate project execution.',
-      'Perform data analysis and trend analysis to support management reporting and decision-making.',
+      'Analyze bank-wide payment platform performance to support data-driven decisions.',
+      'Prepare Business Requirement and training documents.',
+      'Document system changes and procedures.',
+      'Train branch and district staff on payment system best practices.',
+      'Use SPSS, IBM, and Excel for monitoring, KPI tracking, and evidence-based performance improvement.',
+    ],
+  },
+  {
+    role: 'Graduate Trainee, Customer Service',
+    organization: 'Cooperative Bank of Oromia',
+    location: 'Addis Ababa, Ethiopia',
+    period: 'Feb 2023 – Feb 2024',
+    responsibilities: [
+      'Built strong customer relationships while promoting banking products.',
+      'Developed communication skills and deepened understanding of customer needs.',
     ],
   },
 ];

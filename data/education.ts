@@ -10,15 +10,15 @@ export const education: EducationItem[] = [
   {
     degree: 'Master of Science',
     field: 'Project Management',
-    institution: 'Maryland International College',
+    institution: 'Maryland International College (MIC)',
     location: 'Ethiopia',
-    year: 'January 2026',
+    year: 'Nov 2023 – Nov 2025',
   },
   {
     degree: 'Bachelor of Science',
-    field: 'Electrical & Computer Engineering',
+    field: 'Electrical & Computer Engineering (Communication Stream)',
     institution: 'Hawassa University',
     location: 'Ethiopia',
-    year: 'June 2022',
+    year: '2018 – 2022',
   },
 ];

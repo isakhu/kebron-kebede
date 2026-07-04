@@ -3,23 +3,26 @@ import { Metadata } from 'next';
 const siteUrl = 'https://kebron-portfolio.example.com';
 
 export const metadata: Metadata = {
-  title: 'Kebron Kebede | Project Manager · Business Analyst · Card Banking Officer',
-  description: 'Professional portfolio for Kebron Kebede, Project Manager with expertise in banking operations, business analysis, payment systems, and project leadership.',
+  title: 'Kebron Kebede Olana | Payment Platform Performance Analyst · Social Development',
+  description:
+    'Portfolio of Kebron Kebede Olana — Payment Platform Performance Analyst at Cooperative Bank of Oromia, MSc Project Management candidate, Google PM certified, passionate about social development project work.',
   metadataBase: new URL(siteUrl),
   icons: {
     icon: '/favicon.svg',
   },
   openGraph: {
-    title: 'Kebron Kebede · Project Manager Portfolio',
-    description: 'Executive banking portfolio highlighting project management, business analysis, payment systems expertise, and banking operations leadership.',
+    title: 'Kebron Kebede Olana · Payment Platform Performance Analyst',
+    description:
+      'Data-driven analyst with a passion for social development project work. MSc Project Management, Google PM certified.',
     type: 'website',
     url: siteUrl,
-    siteName: 'Kebron Kebede - Project Manager',
+    siteName: 'Kebron Kebede Olana',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kebron Kebede · Project Manager Portfolio',
-    description: 'Banking operations and project management professional with documented expertise in business analysis and system enhancement.',
+    title: 'Kebron Kebede Olana · Payment Platform Performance Analyst',
+    description:
+      'Data analyst and monitoring & evaluation professional passionate about contributing to social development projects.',
   },
   alternates: {
     canonical: siteUrl,
@@ -29,8 +32,8 @@ export const metadata: Metadata = {
 export const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Kebron Kebede',
-  jobTitle: 'Project Manager | Business Analyst | Card Banking Officer',
+  name: 'Kebron Kebede Olana',
+  jobTitle: 'Payment Platform Performance Analyst',
   worksFor: {
     '@type': 'Organization',
     name: 'Cooperative Bank of Oromia',
@@ -43,6 +46,7 @@ export const structuredData = {
   ],
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Ethiopia',
+    addressLocality: 'Addis Ababa',
+    addressCountry: 'Ethiopia',
   },
 };
